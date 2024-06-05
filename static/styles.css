@@ -1,0 +1,306 @@
+body {
+    background: linear-gradient(135deg, #114c74, #58449f);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+}
+
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ddd;
+}
+
+.hero-button {
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #333 ;
+}
+
+.about, .contact, .subscribe {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.about h2, .contact h2, .subscribe h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ececec;
+}
+
+.about p, .contact p, .subscribe p {
+    font-size: 1.2em;
+    color: #ececec;
+    line-height: 1.6;
+}
+
+.about-collection {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #333;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.about-collection h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ececec;
+}
+
+.about-collection p {
+    font-size: 1.2em;
+    color: #ececec;
+    line-height: 1.6;
+}
+
+.products {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.products h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.product-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    width: calc(33.333% - 40px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-item img {
+    width: 100%;
+    height: 360px; 
+    object-fit: cover; 
+    border-radius: 8px;
+}
+
+.product-item h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.product-item p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.buy-now {
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.buy-now:hover {
+    background-color: #444;
+}
+
+.subscribe-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subscribe-form input[type="email"] {
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.subscribe-form button {
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+    background-color: #444;
+}
+
+.contact {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ececec;
+}
+
+.contact p {
+    font-size: 1.2em;
+    color: #ececec;
+    line-height: 1.6;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+
+.modal-content {
+    background-color: #2b5876;
+    color: rgb(240, 248, 255); 
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgb(255, 255, 255); 
+    position: relative;
+    text-align: left; 
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px; 
+    font-size: 25px; 
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.modal-content h3 {
+    font-size: 2em;
+    margin: 20px 0 10px;
+    color: #ffffff; 
+}
+
+.modal-content p {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #ffffff; 
+}
+
+.about-collection {
+    text-align: center;
+    padding: 100px 20px; 
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    margin-bottom: 30px; 
+}
+
+.about-collection h2 {
+    font-size: 3em; 
+    margin-bottom: 20px;
+    color: #fff; 
+}
+
+.about-collection p {
+    font-size: 1.2em;
+    color: #fff;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto; 
+}
+.about-content .hero-button {
+    margin-top: 20px;
+}
+
+.about-content .hero-button {
+    display: block;
+    margin: 0 auto;
+}

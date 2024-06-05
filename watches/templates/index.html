@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Watches</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>Premium Watches</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#about-collection">About Our Collection</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#subscribe">Subscribe</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="about-collection" class="about-collection">
+            <h2 style="margin-top: -38px;">About Our Collection</h2>
+                <div class="about-content" style="text-align: left;">
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; color: #ececec; line-height: 1.6;">Welcome to our exclusive world of timekeeping marvels! Prepare to be enchanted by a journey through the annals of horological history.</p>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; color: #ececec; line-height: 1.6;">Our saga began amidst the snow-capped peaks of the Swiss Alps, where the rhythmic ticking of clockwork echoed through the valleys. Since those humble beginnings, our artisans have ceaselessly pursued perfection, crafting timepieces that are more than mere instruments; they are embodiments of artistry and innovation.</p>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; color: #ececec; line-height: 1.6;">Each watch in our collection narrates a tale of passion and precision, woven with threads of tradition and infused with a modern spirit. From the elegant sweep of a hand-polished dial to the intricate dance of gears within, every detail is a testament to our unwavering commitment to excellence.</p>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 1.2em; color: #ececec; line-height: 1.6;">Join us on a voyage across continents and centuries as we unveil the secrets of our collection a symphony of design, craftsmanship, and heritage, resonating through time.</p>
+                    <button class="hero-button" onclick="window.location.href='#products'">Buy Now</button>
+            </div>
+        </section>
+        <section id="products" class="products">
+            <h2>Our Exclusive Collection</h2>
+            <div class="product-grid">
+                {% for watch in watches %}
+                <div class="product-item" data-id="{{ watch.id }}">
+                    <img src="{{ watch.image.url }}" alt="{{ watch.name }}">
+                    <h3>{{ watch.name }}</h3>
+                    <p>{{ watch.price }}</p>
+                    <button class="buy-now" onclick="getWatchDetails('{{ watch.id }}')">Buy Now</button>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <section id="subscribe" class="subscribe">
+            <h2>Subscribe to Our Newsletter</h2>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <p>For inquiries and customer support, please contact us at:</p>
+            <p>Email: support@premiumwatches.com</p>
+            <p>Phone: +123 456 7890</p>
+        </section>
+    </div>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modal-image" src="" alt="Watch Image">
+        <h3 id="modal-title">Watch Name</h3>
+        <p id="modal-price">Price</p>
+        <p id="modal-description">Description</p>
+    </div>
+</div>
+
+<script>
+    function getWatchDetails(watchId) {
+        fetch(`/watch/${watchId}/`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('modal-title').innerText = data.name;
+                document.getElementById('modal-price').innerText = `$${data.price}`;
+                document.getElementById('modal-description').innerText = data.description;
+                document.getElementById('modal-image').src = data.image;
+                document.getElementById('myModal').style.display = "block";
+            });
+    }
+    document.querySelector(".close").addEventListener("click", function() {
+        document.getElementById('myModal').style.display = "none";
+    });
+</script>
+</body>
+</html>
